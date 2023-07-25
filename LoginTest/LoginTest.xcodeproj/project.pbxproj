@@ -13,6 +13,8 @@
 		DB2F56972A7033550058963D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2F56952A7033550058963D /* Main.storyboard */; };
 		DB2F56992A7033570058963D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB2F56982A7033570058963D /* Assets.xcassets */; };
 		DB2F569C2A7033570058963D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2F569A2A7033570058963D /* LaunchScreen.storyboard */; };
+		DB2F56A42A703BF30058963D /* ViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F56A32A703BF30058963D /* ViewControllerTwo.swift */; };
+		DB2F56A62A7042710058963D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F56A52A7042710058963D /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		DB2F56982A7033570058963D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB2F569B2A7033570058963D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB2F569D2A7033570058963D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB2F56A32A703BF30058963D /* ViewControllerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTwo.swift; sourceTree = "<group>"; };
+		DB2F56A52A7042710058963D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				DB2F568F2A7033550058963D /* AppDelegate.swift */,
 				DB2F56912A7033550058963D /* SceneDelegate.swift */,
 				DB2F56932A7033550058963D /* ViewController.swift */,
+				DB2F56A52A7042710058963D /* User.swift */,
+				DB2F56A32A703BF30058963D /* ViewControllerTwo.swift */,
 				DB2F56952A7033550058963D /* Main.storyboard */,
 				DB2F56982A7033570058963D /* Assets.xcassets */,
 				DB2F569A2A7033570058963D /* LaunchScreen.storyboard */,
@@ -141,6 +147,8 @@
 				DB2F56942A7033550058963D /* ViewController.swift in Sources */,
 				DB2F56902A7033550058963D /* AppDelegate.swift in Sources */,
 				DB2F56922A7033550058963D /* SceneDelegate.swift in Sources */,
+				DB2F56A62A7042710058963D /* User.swift in Sources */,
+				DB2F56A42A703BF30058963D /* ViewControllerTwo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
