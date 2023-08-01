@@ -12,6 +12,7 @@ class IngresosViewController: UIViewController {
     var lista = DataModel.getList()
     var nameSelect: String? = ""
     var moneySelect: Double? = 0.0
+    var divisaSelect: String? = ""
     
     
     @IBOutlet var linePink: UIView!
@@ -80,6 +81,7 @@ class IngresosViewController: UIViewController {
             let vistaOpciones = segue.destination as! OpcionesIngresosViewController
             vistaOpciones.nombreOpcion = nameSelect!
             vistaOpciones.moneyActually = moneySelect!
+            vistaOpciones.divisaType = divisaSelect!
         }
     }
 
@@ -107,6 +109,7 @@ extension IngresosViewController: UITableViewDelegate, UITableViewDataSource{
         print("You tapped cell \(values[indexPath.row].nameIncome).")
         nameSelect = values[indexPath.row].nameIncome
         moneySelect = values[indexPath.row].money
+        divisaSelect = values[indexPath.row].divisa
         performSegue(withIdentifier: "opcionesIngresos", sender: nil)
     }
     

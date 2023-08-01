@@ -1,64 +1,54 @@
 //
-//  OpcionesIngresosViewController.swift
+//  OpcionesGastosViewController.swift
 //  FreeWallet
 //
-//  Created by César Alejandro Guadarrama Ortega on 31/07/23.
+//  Created by César Alejandro Guadarrama Ortega on 01/08/23.
 //
 
 import UIKit
 
-class OpcionesIngresosViewController: UIViewController {
+class OpcionesGastosViewController: UIViewController {
     
-    @IBOutlet var labelTittle: UILabel!
-    @IBOutlet var moverButton: UIButton!
-    @IBOutlet var labelMoney: UILabel!
-    @IBOutlet var modifyButton: UIButton!
     
-    var nombreOpcion: String? = ""
+    var nameOption: String? = ""
     var moneyActually: Double? = 0.0
     var divisaType: String? = ""
     
     var lista = DataModel.getList()
     
-    //Funciones para mover los datos de una vista a otra
-
+    @IBOutlet var labelTittle: UILabel!
+    @IBOutlet var modifyButton: UIButton!
+    @IBOutlet var labelMoney: UILabel!
+    
+    
+    
     @IBAction func pressModify(_ sender: UIButton) {
-        performSegue(withIdentifier: "modificarIngreso", sender: sender)
+        performSegue(withIdentifier: "modificarGasto", sender: nil)
     }
-    @IBAction func pressMove(_ sender: UIButton) {
-        performSegue(withIdentifier: "mover", sender: sender)
-    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "mover"{
-            let vistaMover = segue.destination as! MoverViewController
-            vistaMover.nameModify = nombreOpcion!
-            vistaMover.moneyModify = moneyActually!
+        if segue.identifier == "modificarGasto"{
+            let vistaModificar = segue.destination as! ModificarViewController
+            vistaModificar.nameModify = nameOption!
+            vistaModificar.moneyModify = moneyActually!
+            vistaModificar.divisaModify = divisaType!
         }
     }
     
-    override func viewDidLoad() {
+   
+    override func viewDidLoad(){
         super.viewDidLoad()
-        //Modificaciones boton mover
-        moverButton.frame = CGRect(x: 175, y: 200 , width: 90, height: 90)
-        moverButton.layer.cornerRadius = 0.5 * moverButton.bounds.size.width
-        moverButton.layer.borderColor = UIColor.lightGray.cgColor
-        moverButton.layer.borderWidth = 1.0
-        moverButton.clipsToBounds = true
-        
-        // Modificaciones boton modificar
-        modifyButton.frame = CGRect(x: 280, y: 300, width: 90, height: 90)
+        modifyButton.frame = CGRect(x: 160, y: 200 , width: 110, height: 110)
         modifyButton.layer.cornerRadius = 0.5 * modifyButton.bounds.size.width
         modifyButton.layer.borderColor = UIColor.lightGray.cgColor
         modifyButton.layer.borderWidth = 1.0
         modifyButton.clipsToBounds = true
         
-        labelTittle.text = nombreOpcion!
+        labelTittle.text = nameOption
         labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
-        
         
         configureView()
         tableView.reloadData()
-        
     }
     
     lazy var tableView : UITableView = {
@@ -99,15 +89,15 @@ class OpcionesIngresosViewController: UIViewController {
     
 }
     
-extension OpcionesIngresosViewController: UITableViewDelegate, UITableViewDataSource{
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            //return IngresosModel.getList().count
-            return lista.count
+extension OpcionesGastosViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return IngresosModel.getList().count
+        return lista.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath) as? CustomCell else{
-           return UITableViewCell()
+            return UITableViewCell()
         }
         let value = DataModel.getList()[indexPath.row]
         cell.setData(value)
@@ -119,12 +109,4 @@ extension OpcionesIngresosViewController: UITableViewDelegate, UITableViewDataSo
         let values = DataModel.getList()
         print("You tapped cell \(values[indexPath.row].nameIncome).")
     }
-    
-    
-    
-    
-    
-    
-    
-
 }

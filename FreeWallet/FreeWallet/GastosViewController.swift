@@ -8,6 +8,10 @@
 import UIKit
 
 class GastosViewController: UIViewController {
+    
+    var nameSelect: String? = ""
+    var moneySelect: Double? = 0.0
+    var divisaSelect: String? = ""
     var lista = DataModel.getList2()
         
     @IBOutlet var lineGray: UIView!
@@ -44,6 +48,15 @@ class GastosViewController: UIViewController {
         bordesRedondos()
         configureView()
         tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "opcionesGastos"{
+            let vistaOpciones = segue.destination as! OpcionesGastosViewController
+            vistaOpciones.nameOption = nameSelect!
+            vistaOpciones.moneyActually = moneySelect!
+            vistaOpciones.divisaType = divisaSelect!
+        }
     }
     
     private func configureView(){
@@ -92,6 +105,11 @@ extension GastosViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let values = DataModel.getList2()
         print("You tapped cell \(values[indexPath.row].nameIncome).")
+        nameSelect = values[indexPath.row].nameIncome
+        moneySelect = values[indexPath.row].money
+        divisaSelect = values[indexPath.row].divisa
+        
+        performSegue(withIdentifier: "opcionesGastos", sender: nil)
     }
     
     //metodo que activa el poder mover las celdas
