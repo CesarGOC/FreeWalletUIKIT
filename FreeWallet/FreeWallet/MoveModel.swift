@@ -1,8 +1,8 @@
 //
-//  Move.swift
-//  CollectionViewsTest
+//  MoveModel.swift
+//  FreeWallet
 //
-//  Created by César Alejandro Guadarrama Ortega on 27/07/23.
+//  Created by César Alejandro Guadarrama Ortega on 31/07/23.
 //
 
 import Foundation

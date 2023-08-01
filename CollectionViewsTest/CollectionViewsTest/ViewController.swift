@@ -47,7 +47,7 @@ extension ViewController: UICollectionViewDataSource{
 //Funcion para modificar el tamaño de los elelmetos
 extension ViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 150)
+        return CGSize(width: 100, height: 130)
     }
 }
 

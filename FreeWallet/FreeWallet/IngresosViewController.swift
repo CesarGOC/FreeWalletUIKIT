@@ -10,6 +10,10 @@ import UIKit
 class IngresosViewController: UIViewController {
     
     var lista = DataModel.getList()
+    var nameSelect: String? = ""
+    var moneySelect: Double? = 0.0
+    
+    
     @IBOutlet var linePink: UIView!
     @IBOutlet var lineGray: UIView!
     
@@ -71,6 +75,15 @@ class IngresosViewController: UIViewController {
         return (keyWindow?.safeAreaInsets.top) ?? 0.0
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "opcionesIngresos"{
+            let vistaOpciones = segue.destination as! OpcionesIngresosViewController
+            vistaOpciones.nombreOpcion = nameSelect!
+            vistaOpciones.moneyActually = moneySelect!
+        }
+    }
+
+    
 }
     
 extension IngresosViewController: UITableViewDelegate, UITableViewDataSource{
@@ -92,6 +105,9 @@ extension IngresosViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let values = DataModel.getList()
         print("You tapped cell \(values[indexPath.row].nameIncome).")
+        nameSelect = values[indexPath.row].nameIncome
+        moneySelect = values[indexPath.row].money
+        performSegue(withIdentifier: "opcionesIngresos", sender: nil)
     }
     
     //metodo que activa el poder mover las celdas

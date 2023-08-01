@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-747" y="730"/>
         </scene>
-        <!--Ingresos-->
+        <!--Ingresos View Controller-->
         <scene sceneID="4el-3O-luQ">
             <objects>
                 <viewController id="OP9-VG-9Mv" customClass="IngresosViewController" customModule="FreeWallet" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,15 +71,16 @@
                         <viewLayoutGuide key="safeArea" id="yX9-ZC-z7O"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ingresos" image="dollarsign.circle.fill" catalog="system" id="4rb-Jd-Dje"/>
+                    <navigationItem key="navigationItem" id="vam-NS-Rfv"/>
                     <connections>
                         <outlet property="lineGray" destination="oho-hv-hS8" id="qqF-Vr-542"/>
                         <outlet property="linePink" destination="7Zm-cB-BF0" id="qLg-nX-0rH"/>
+                        <segue destination="2QI-UT-8rZ" kind="show" identifier="opcionesIngresos" id="S0d-pb-gr7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2r-T9-Zoi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46.046511627906973" y="728.75536480686696"/>
+            <point key="canvasLocation" x="45" y="1456"/>
         </scene>
         <!--Gastos-->
         <scene sceneID="nGw-Gc-wUq">
@@ -134,7 +136,156 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQS-Hz-PSP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="870.69767441860461" y="728.75536480686696"/>
+            <point key="canvasLocation" x="1769.3023255813953" y="728.75536480686696"/>
+        </scene>
+        <!--Mover View Controller-->
+        <scene sceneID="0f7-Uj-jBc">
+            <objects>
+                <viewController id="LIN-0C-tmj" customClass="MoverViewController" customModule="FreeWallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pje-7S-2fe">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="849"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6G8-pj-NCS">
+                                <rect key="frame" x="0.0" y="223" width="430" height="626"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Ox-xF-HIr">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MoverCollectionViewCell" id="Zba-Om-mMV" customClass="MoverCollectionViewCell" customModule="FreeWallet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="58" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gCG-18-gkE">
+                                            <rect key="frame" x="0.0" y="0.0" width="58" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p6M-fy-yCB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="58" height="91"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edp-W3-Tgc">
+                                                    <rect key="frame" x="8" y="99" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="systemGrayColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Edp-W3-Tgc" secondAttribute="trailing" constant="8" id="3TV-xo-00o"/>
+                                                <constraint firstItem="p6M-fy-yCB" firstAttribute="top" secondItem="gCG-18-gkE" secondAttribute="top" id="HtX-nz-1pn"/>
+                                                <constraint firstItem="Edp-W3-Tgc" firstAttribute="leading" secondItem="gCG-18-gkE" secondAttribute="leading" constant="8" id="PR9-PE-XUA"/>
+                                                <constraint firstItem="p6M-fy-yCB" firstAttribute="leading" secondItem="gCG-18-gkE" secondAttribute="leading" id="RmH-DZ-EBL"/>
+                                                <constraint firstAttribute="bottom" secondItem="Edp-W3-Tgc" secondAttribute="bottom" constant="8" id="bAg-DI-K5c"/>
+                                                <constraint firstItem="Edp-W3-Tgc" firstAttribute="top" secondItem="p6M-fy-yCB" secondAttribute="bottom" constant="8" id="cL3-Rc-ElX"/>
+                                                <constraint firstAttribute="trailing" secondItem="p6M-fy-yCB" secondAttribute="trailing" id="fHT-bO-iAJ"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageItem" destination="p6M-fy-yCB" id="8Wg-Wk-zA5"/>
+                                            <outlet property="labelTittle" destination="Edp-W3-Tgc" id="3ZU-Fy-76R"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0C9-wI-Vqx">
+                                <rect key="frame" x="33" y="103" width="97" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjz-d1-xw3">
+                                <rect key="frame" x="33" y="141" width="218" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingresos - Gastos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nbx-cG-15U">
+                                <rect key="frame" x="277" y="182" width="122" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ew0-b9-lPV">
+                                <rect key="frame" x="20" y="201" width="379" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NvG-cK-m0s">
+                                <rect key="frame" x="258" y="201" width="141" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Money" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0YO-34-4Mn">
+                                <rect key="frame" x="259" y="147" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tnt-KJ-Cl9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uxT-Wd-66t"/>
+                    <connections>
+                        <outlet property="collectionView" destination="6G8-pj-NCS" id="Gm2-dU-wIg"/>
+                        <outlet property="labelMoney" destination="0YO-34-4Mn" id="247-J3-rqA"/>
+                        <outlet property="labelSelect" destination="Rjz-d1-xw3" id="kcn-g2-RzU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pPG-ps-psc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="897" y="2158"/>
+        </scene>
+        <!--Opciones Ingresos View Controller-->
+        <scene sceneID="qa7-gM-Ksl">
+            <objects>
+                <viewController id="2QI-UT-8rZ" customClass="OpcionesIngresosViewController" customModule="FreeWallet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ALW-1C-6GQ">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="849"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O57-K3-Br7">
+                                <rect key="frame" x="153" y="124" width="124" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-pS-gbF">
+                                <rect key="frame" x="165" y="251" width="101" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Mover">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressMove:" destination="2QI-UT-8rZ" eventType="touchUpInside" id="gLa-xf-xaI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HpK-K2-XfM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jyr-QA-GZi"/>
+                    <connections>
+                        <outlet property="labelTittle" destination="O57-K3-Br7" id="viW-bt-rOG"/>
+                        <outlet property="moverButton" destination="8vj-pS-gbF" id="ChF-av-eLg"/>
+                        <segue destination="LIN-0C-tmj" kind="show" identifier="mover" id="rPa-nH-uFq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MN5-bv-6EE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44.651162790697676" y="2157.9399141630902"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2sj-Br-9k8">
@@ -150,13 +301,32 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="c0Q-eB-p3E"/>
-                        <segue destination="OP9-VG-9Mv" kind="relationship" relationship="viewControllers" id="PTC-1S-SaU"/>
+                        <segue destination="rWd-vl-sc0" kind="relationship" relationship="viewControllers" id="PTC-1S-SaU"/>
                         <segue destination="B9d-OG-QVQ" kind="relationship" relationship="viewControllers" id="e2k-Yy-3vA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nc3-ZA-Q79" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="47.441860465116278" y="-2.5751072961373391"/>
+        </scene>
+        <!--Ingresos-->
+        <scene sceneID="BTn-uR-p7T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rWd-vl-sc0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Ingresos" image="dollarsign.circle.fill" catalog="system" id="4rb-Jd-Dje"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nq3-s7-NBs">
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OP9-VG-9Mv" kind="relationship" relationship="rootViewController" id="Q24-Iw-zuK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hIg-9i-NMe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46.046511627906973" y="728.75536480686696"/>
         </scene>
     </scenes>
     <resources>
@@ -168,6 +338,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
