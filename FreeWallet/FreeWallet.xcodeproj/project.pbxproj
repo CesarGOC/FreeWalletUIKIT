@@ -13,6 +13,7 @@
 		DB2575AB2A783B5500EE79E0 /* MoveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2575AA2A783B5500EE79E0 /* MoveModel.swift */; };
 		DB2575AD2A79688400EE79E0 /* OpcionesGastosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2575AC2A79688400EE79E0 /* OpcionesGastosViewController.swift */; };
 		DB2575AF2A79793A00EE79E0 /* ModificarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2575AE2A79793A00EE79E0 /* ModificarViewController.swift */; };
+		DB2575B12A7AAED100EE79E0 /* CalculadoraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2575B02A7AAED100EE79E0 /* CalculadoraViewController.swift */; };
 		DB2F56B42A7056320058963D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F56B32A7056320058963D /* AppDelegate.swift */; };
 		DB2F56B62A7056320058963D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F56B52A7056320058963D /* SceneDelegate.swift */; };
 		DB2F56B82A7056320058963D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F56B72A7056320058963D /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		DB2575AA2A783B5500EE79E0 /* MoveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveModel.swift; sourceTree = "<group>"; };
 		DB2575AC2A79688400EE79E0 /* OpcionesGastosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpcionesGastosViewController.swift; sourceTree = "<group>"; };
 		DB2575AE2A79793A00EE79E0 /* ModificarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModificarViewController.swift; sourceTree = "<group>"; };
+		DB2575B02A7AAED100EE79E0 /* CalculadoraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculadoraViewController.swift; sourceTree = "<group>"; };
 		DB2F56B02A7056320058963D /* FreeWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2F56B32A7056320058963D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB2F56B52A7056320058963D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,15 +80,16 @@
 			children = (
 				DB2F56B32A7056320058963D /* AppDelegate.swift */,
 				DB2F56CB2A7180000058963D /* DataModel.swift */,
+				DB2575AA2A783B5500EE79E0 /* MoveModel.swift */,
 				DB2F56CF2A7181790058963D /* IngresosCustomCell.swift */,
 				DB2F56B72A7056320058963D /* ViewController.swift */,
 				DB2F56C72A717F660058963D /* IngresosViewController.swift */,
 				DB2575A22A7825C400EE79E0 /* OpcionesIngresosViewController.swift */,
 				DB2575AC2A79688400EE79E0 /* OpcionesGastosViewController.swift */,
+				DB2575A82A78385000EE79E0 /* MoverCollectionViewCell.swift */,
+				DB2575B02A7AAED100EE79E0 /* CalculadoraViewController.swift */,
 				DB2575AE2A79793A00EE79E0 /* ModificarViewController.swift */,
 				DB2575A62A7828DA00EE79E0 /* MoverViewController.swift */,
-				DB2575AA2A783B5500EE79E0 /* MoveModel.swift */,
-				DB2575A82A78385000EE79E0 /* MoverCollectionViewCell.swift */,
 				DB2F56C92A717F910058963D /* GastosViewController.swift */,
 				DB2F56B52A7056320058963D /* SceneDelegate.swift */,
 				DB2F56B92A7056320058963D /* Main.storyboard */,
@@ -176,6 +179,7 @@
 				DB2F56B82A7056320058963D /* ViewController.swift in Sources */,
 				DB2F56B42A7056320058963D /* AppDelegate.swift in Sources */,
 				DB2F56CA2A717F910058963D /* GastosViewController.swift in Sources */,
+				DB2575B12A7AAED100EE79E0 /* CalculadoraViewController.swift in Sources */,
 				DB2575A72A7828DA00EE79E0 /* MoverViewController.swift in Sources */,
 				DB2575AB2A783B5500EE79E0 /* MoveModel.swift in Sources */,
 				DB2F56B62A7056320058963D /* SceneDelegate.swift in Sources */,

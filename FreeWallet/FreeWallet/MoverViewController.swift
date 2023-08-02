@@ -14,16 +14,16 @@ class MoverViewController: UIViewController {
     @IBOutlet var labelMoney: UILabel!
     @IBOutlet var labelSelect: UILabel!
     
-    var nameModify: String = ""
-    var moneyModify: Double = 0.0
+    var nameTitle: String = ""
+    var moneyTitle: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         
-        labelSelect.text = nameModify
-        labelMoney.text = "$\(String(moneyModify))"
+        labelSelect.text = nameTitle
+        labelMoney.text = "$\(String(moneyTitle))"
         
         collectionView.dataSource = self
         collectionView.delegate = self

@@ -9,19 +9,29 @@ import UIKit
 
 class OpcionesIngresosViewController: UIViewController {
     
+    @IBOutlet var ingresarButton: UIButton!
     @IBOutlet var labelTittle: UILabel!
     @IBOutlet var moverButton: UIButton!
     @IBOutlet var labelMoney: UILabel!
     @IBOutlet var modifyButton: UIButton!
     
-    var nombreOpcion: String? = ""
+    var nameOption: String? = ""
     var moneyActually: Double? = 0.0
     var divisaType: String? = ""
     
     var lista = DataModel.getList()
     
+    
+    
+    @IBAction func pressIngresar(_ sender: UIButton) {
+        performSegue(withIdentifier: "ingresar", sender: sender)
+    }
+    
+    
+    
     //Funciones para mover los datos de una vista a otra
 
+    
     @IBAction func pressModify(_ sender: UIButton) {
         performSegue(withIdentifier: "modificarIngreso", sender: sender)
     }
@@ -31,28 +41,41 @@ class OpcionesIngresosViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mover"{
             let vistaMover = segue.destination as! MoverViewController
-            vistaMover.nameModify = nombreOpcion!
-            vistaMover.moneyModify = moneyActually!
+            vistaMover.nameTitle = nameOption!
+            vistaMover.moneyTitle = moneyActually!
+        }
+        if segue.identifier == "modificarIngreso"{
+            let vistaModificar = segue.destination as! ModificarViewController
+            vistaModificar.nameModify = nameOption!
+            vistaModificar.moneyModify = moneyActually!
+            vistaModificar.divisaModify = divisaType!
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Modificaciones boton mover
-        moverButton.frame = CGRect(x: 175, y: 200 , width: 90, height: 90)
+        moverButton.frame = CGRect(x: 170, y: 200 , width: 90, height: 90)
         moverButton.layer.cornerRadius = 0.5 * moverButton.bounds.size.width
         moverButton.layer.borderColor = UIColor.lightGray.cgColor
         moverButton.layer.borderWidth = 1.0
         moverButton.clipsToBounds = true
         
         // Modificaciones boton modificar
-        modifyButton.frame = CGRect(x: 280, y: 300, width: 90, height: 90)
+        modifyButton.frame = CGRect(x: 280, y: 275, width: 90, height: 90)
         modifyButton.layer.cornerRadius = 0.5 * modifyButton.bounds.size.width
         modifyButton.layer.borderColor = UIColor.lightGray.cgColor
         modifyButton.layer.borderWidth = 1.0
         modifyButton.clipsToBounds = true
         
-        labelTittle.text = nombreOpcion!
+        // Modificaciones boton ingresar
+        ingresarButton.frame = CGRect(x: 65, y: 275, width: 90, height: 90)
+        ingresarButton.layer.cornerRadius = 0.5 * modifyButton.bounds.size.width
+        ingresarButton.layer.borderColor = UIColor.lightGray.cgColor
+        ingresarButton.layer.borderWidth = 1.0
+        ingresarButton.clipsToBounds = true
+        
+        labelTittle.text = nameOption!
         labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
         
         

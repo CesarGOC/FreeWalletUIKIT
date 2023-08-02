@@ -79,7 +79,7 @@ class IngresosViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "opcionesIngresos"{
             let vistaOpciones = segue.destination as! OpcionesIngresosViewController
-            vistaOpciones.nombreOpcion = nameSelect!
+            vistaOpciones.nameOption = nameSelect!
             vistaOpciones.moneyActually = moneySelect!
             vistaOpciones.divisaType = divisaSelect!
         }
