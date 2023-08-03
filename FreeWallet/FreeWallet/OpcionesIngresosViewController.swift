@@ -23,14 +23,11 @@ class OpcionesIngresosViewController: UIViewController {
     
     
     
-    @IBAction func pressIngresar(_ sender: UIButton) {
-        performSegue(withIdentifier: "ingresar", sender: sender)
-    }
-    
-    
-    
     //Funciones para mover los datos de una vista a otra
-
+    
+    @IBAction func pressIngresar(_ sender: UIButton) {
+        performSegue(withIdentifier: "opcionesIngresar", sender: sender)
+    }
     
     @IBAction func pressModify(_ sender: UIButton) {
         performSegue(withIdentifier: "modificarIngreso", sender: sender)
@@ -49,6 +46,12 @@ class OpcionesIngresosViewController: UIViewController {
             vistaModificar.nameModify = nameOption!
             vistaModificar.moneyModify = moneyActually!
             vistaModificar.divisaModify = divisaType!
+        }
+        if segue.identifier == "opcionesIngresar"{
+            let vistaCalculadora = segue.destination as! CalculadoraViewController
+            vistaCalculadora.nameCalculate = nameOption!
+            vistaCalculadora.moneyCalculate = moneyActually!
+            vistaCalculadora.divisaClculate = divisaType!
         }
     }
     
