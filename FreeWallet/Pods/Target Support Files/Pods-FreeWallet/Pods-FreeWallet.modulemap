@@ -1,0 +1,6 @@
+framework module Pods_FreeWallet {
+  umbrella header "Pods-FreeWallet-umbrella.h"
+
+  export *
+  module * { export * }
+}
