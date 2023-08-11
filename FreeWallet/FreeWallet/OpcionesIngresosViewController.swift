@@ -146,11 +146,5 @@ extension OpcionesIngresosViewController: UITableViewDelegate, UITableViewDataSo
         print("You tapped cell \(values[indexPath.row].nameIncome).")
     }
     
-    
-    
-    
-    
-    
-    
 
 }
