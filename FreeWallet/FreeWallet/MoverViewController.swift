@@ -58,15 +58,33 @@ class MoverViewController: UIViewController {
     }
 }
 
+/*func llenarMoves(){
+    for ingreso in listaIngresos{
+        moves.append(ingreso.move)
+    }
+    for gasto in listaGastos{
+        moves.append(gasto.move)
+    }
+    if let index = moves.firstIndex(where: { $0.name == nameTitle}){
+        print("Ingreso o gasto encontrado:")
+        moves.remove(at: index)
+    }
+}
+*/
 extension MoverViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        for ingreso in listaIngresos{
-            moves.append(ingreso.move)
-        }
-        for gasto in listaGastos{
-            moves.append(gasto.move)
+            
+            for ingreso in listaIngresos{
+                moves.append(ingreso.move)
+            }
+            for gasto in listaGastos{
+                moves.append(gasto.move)
+            }
+        if let index = moves.firstIndex(where: { $0.name == nameTitle}){
+            
+            print("Ingreso o gasto encontrado:")
+            moves.remove(at: index)
         }
         return moves.count
     }
