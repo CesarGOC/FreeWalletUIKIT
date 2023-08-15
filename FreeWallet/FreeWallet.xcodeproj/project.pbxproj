@@ -78,7 +78,6 @@
 				0CD702D695BBD55B693CCEFB /* Pods-FreeWallet.debug.xcconfig */,
 				827593EFD429E9C1DE072047 /* Pods-FreeWallet.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

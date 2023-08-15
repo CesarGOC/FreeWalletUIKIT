@@ -68,10 +68,16 @@ class CustomCell: UITableViewCell {
                     stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
                 ])
     }
-    func setData(_ income: DataModel){
+    func setDataIngresos(_ income: DataModelIngresos){
         logoPic.image = UIImage(named: income.logoPic)
         moneyLabel.text = "$\(String(income.money))"
         nameIncomeLabel.text = income.nameIncome
+    }
+    
+    func setDataGastos(_ spent: DataModelGastos){
+        logoPic.image = UIImage(named: spent.logoPic)
+        moneyLabel.text = "$\(String(spent.money))"
+        nameIncomeLabel.text = spent.nameSpent
     }
 
 }

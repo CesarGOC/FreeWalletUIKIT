@@ -13,7 +13,7 @@ struct Move {
     var image: UIImage!
 }
 
-let moves: [Move] = [
+/*let moves: [Move] = [
     Move(name: "BBVA", image: UIImage(named: "IMG_2099-2")),
     Move(name: "Efectivo", image: UIImage(named: "IMG_2102-2")),
     Move(name: "CETES", image: UIImage(named: "IMG_2100-2")),
@@ -33,4 +33,11 @@ let moves: [Move] = [
     Move(name: "Manutencion", image: UIImage(named: "IMG_2097-2")),
     Move(name: "Tarjetas de Credito", image: UIImage(named: "IMG_2098-2"))
    
-]
+]*/
+
+/*
+var moves: [Move] = []
+
+for ingreso in listaIngresos{
+    moves.append(ingreso.move)
+}*/

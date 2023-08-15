@@ -12,7 +12,6 @@ class GastosViewController: UIViewController {
     var nameSelect: String? = ""
     var moneySelect: Double? = 0.0
     var divisaSelect: String? = ""
-    var lista = DataModel.getList2()
         
     @IBOutlet var lineGray: UIView!
     @IBOutlet var linePink: UIView!
@@ -89,23 +88,23 @@ class GastosViewController: UIViewController {
 extension GastosViewController: UITableViewDelegate, UITableViewDataSource{
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             //return IngresosModel.getList().count
-            return lista.count
+            return listaGastos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath) as? CustomCell else{
            return UITableViewCell()
         }
-        let value = DataModel.getList2()[indexPath.row]
-        cell.setData(value)
+        let value = listaGastos[indexPath.row]
+        cell.setDataGastos(value)
         return cell
     }
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let values = DataModel.getList2()
-        print("You tapped cell \(values[indexPath.row].nameIncome).")
-        nameSelect = values[indexPath.row].nameIncome
+        let values = listaGastos
+        print("You tapped cell \(values[indexPath.row].nameSpent).")
+        nameSelect = values[indexPath.row].nameSpent
         moneySelect = values[indexPath.row].money
         divisaSelect = values[indexPath.row].divisa
         
@@ -121,7 +120,7 @@ extension GastosViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         //** Recordar que la lista que retorna no se puede modificar, en la app hacer la modificacion
         //var lista = IngresosModel.getList()
-        lista.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        listaGastos.swapAt(sourceIndexPath.row, destinationIndexPath.row)
     }
     
     //metodo que activa el eliminar los objetos de la tableView
@@ -134,7 +133,7 @@ extension GastosViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             tableView.beginUpdates()
-            lista.remove(at: indexPath.row)
+            listaGastos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }

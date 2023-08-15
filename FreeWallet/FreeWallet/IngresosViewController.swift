@@ -7,12 +7,15 @@
 
 import UIKit
 
+
+
 class IngresosViewController: UIViewController {
     
-    var lista = DataModel.getList()
     var nameSelect: String? = ""
     var moneySelect: Double? = 0.0
     var divisaSelect: String? = ""
+    
+    
     
     
     @IBOutlet var linePink: UIView!
@@ -32,6 +35,22 @@ class IngresosViewController: UIViewController {
         }
     }
     
+    //refrescar vista
+    /*
+    lazy var refreshControl={
+        let refreshControl = UIRefreshControl()
+        // QUE AL CAMBIAR AL VALOR SE EJECUTE EL METODO
+        refreshControl.addTarget(self, action: #selector(OpcionesIngresosViewController.actualizarDatos(_:)), for: .valueChanged)
+        refreshControl.tintColor = UIColor.systemPink
+        
+        return refreshControl
+    }()
+    
+    @objc func actualizarDatos(_ refreshControl:UIRefreshControl){
+        
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }*/
     
     lazy var tableView : UITableView = {
         let tableView = UITableView()
@@ -49,6 +68,28 @@ class IngresosViewController: UIViewController {
         bordesRedondos()
         configureView()
         tableView.reloadData()
+        //tableView.addSubview(refreshControl)
+        
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //tableView.reloadData()
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
+        }
+        
+        
+
     }
     
     private func configureView(){
@@ -91,21 +132,21 @@ class IngresosViewController: UIViewController {
 extension IngresosViewController: UITableViewDelegate, UITableViewDataSource{
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             //return IngresosModel.getList().count
-            return lista.count
+            return listaIngresos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath) as? CustomCell else{
            return UITableViewCell()
         }
-        let value = DataModel.getList()[indexPath.row]
-        cell.setData(value)
+        let value = listaIngresos[indexPath.row]
+        cell.setDataIngresos(value)
         return cell
     }
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let values = DataModel.getList()
+        let values = listaIngresos
         print("You tapped cell \(values[indexPath.row].nameIncome).")
         nameSelect = values[indexPath.row].nameIncome
         moneySelect = values[indexPath.row].money
@@ -122,7 +163,7 @@ extension IngresosViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         //** Recordar que la lista que retorna no se puede modificar, en la app hacer la modificacion
         //var lista = IngresosModel.getList()
-        lista.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        listaIngresos.swapAt(sourceIndexPath.row, destinationIndexPath.row)
     }
     
     //metodo que activa el eliminar los objetos de la tableView
@@ -135,7 +176,7 @@ extension IngresosViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             tableView.beginUpdates()
-            lista.remove(at: indexPath.row)
+            listaIngresos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }

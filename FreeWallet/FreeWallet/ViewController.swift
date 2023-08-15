@@ -76,7 +76,12 @@ class ViewController: UIViewController, ChartViewDelegate {
         view.addSubview(pieChart)
         
         
-        pieChart.centerText = "Total\n$6739 "
+        //mmodificar el texto central
+        let centerText = NSMutableAttributedString(string: "$2.02 M")
+            centerText.setAttributes([.font: UIFont.boldSystemFont(ofSize: 16),
+                                      .foregroundColor: UIColor.black], range: NSRange(location: 0, length: centerText.length))
+        
+        pieChart.centerAttributedText = centerText
         pieChart.drawEntryLabelsEnabled = false
         
         var entries = [ChartDataEntry]()
@@ -287,6 +292,9 @@ class ViewController: UIViewController, ChartViewDelegate {
         //pieChart.center = view.center
         view.addSubview(lineChart)
         
+        
+
+        
         var entries_2 = [ChartDataEntry]()
         
         //var money_2 = [1000,3000, 4000,3000, 2000,1000,2000,0]
@@ -345,10 +353,5 @@ class ViewController: UIViewController, ChartViewDelegate {
         
     }
    
-
-    
-    
-
-
 }
 

@@ -14,7 +14,7 @@ class OpcionesGastosViewController: UIViewController {
     var moneyActually: Double? = 0.0
     var divisaType: String? = ""
     
-    var lista = DataModel.getList()
+    var lista = listaGastos
     
     @IBOutlet var labelTittle: UILabel!
     @IBOutlet var modifyButton: UIButton!
@@ -50,6 +50,8 @@ class OpcionesGastosViewController: UIViewController {
         configureView()
         tableView.reloadData()
     }
+    
+    
     
     lazy var tableView : UITableView = {
         let tableView = UITableView()
@@ -99,14 +101,16 @@ extension OpcionesGastosViewController: UITableViewDelegate, UITableViewDataSour
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath) as? CustomCell else{
             return UITableViewCell()
         }
-        let value = DataModel.getList()[indexPath.row]
-        cell.setData(value)
+        let value = lista[indexPath.row]
+        cell.setDataGastos(value)
         return cell
     }
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let values = DataModel.getList()
-        print("You tapped cell \(values[indexPath.row].nameIncome).")
+        let values = lista
+        print("You tapped cell \(values[indexPath.row].nameSpent).")
     }
 }
+
+

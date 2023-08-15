@@ -19,7 +19,9 @@ class OpcionesIngresosViewController: UIViewController {
     var moneyActually: Double? = 0.0
     var divisaType: String? = ""
     
-    var lista = DataModel.getList()
+    
+    
+    //var lista = listaIngresos
     
     
     
@@ -52,6 +54,7 @@ class OpcionesIngresosViewController: UIViewController {
             vistaCalculadora.nameCalculate = nameOption!
             vistaCalculadora.moneyCalculate = moneyActually!
             vistaCalculadora.divisaClculate = divisaType!
+            
         }
     }
     
@@ -82,13 +85,56 @@ class OpcionesIngresosViewController: UIViewController {
         labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
         
         
-        configureView()
+        configureView(tableView: tableView)
         tableView.reloadData()
+        
+        //tableView.addSubview(refreshControl)
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+          // Aquí puedes actualizar o realizar acciones necesarias
+          print("ViewControllerA will appear")
+          labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
+        tableView.reloadData()
+          
+      }
+    
+
+    
+    
+    //refrescar vista
+    
+    /*
+    
+    lazy var refreshControl={
+        let refreshControl = UIRefreshControl()
+        // QUE AL CAMBIAR AL VALOR SE EJECUTE EL METODO
+        refreshControl.addTarget(self, action: #selector(OpcionesIngresosViewController.actualizarDatos(_:)), for: .valueChanged)
+        refreshControl.tintColor = UIColor.systemPink
+        
+        return refreshControl
+    }()
+    
+    @objc func actualizarDatos(_ refreshControl:UIRefreshControl){
+        if let index = listaIngresos.firstIndex(where: { $0.nameIncome == nameOption}) {
+            print("Ingreso encontrado:")
+            print(listaIngresos[index].money)
+            listaIngresos[index].money = moneyActually!
+            print(listaIngresos[index].money)
+        } else {
+            print("Ingreso no encontrado.")
+        }
+        
+        
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    */
+    
     lazy var tableView : UITableView = {
-        let tableView = UITableView()
+        var tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 80.0
@@ -98,7 +144,7 @@ class OpcionesIngresosViewController: UIViewController {
         return tableView
     }()
     
-    private func configureView(){
+    private func configureView(tableView:UITableView){
         view.addSubview(tableView)
         var topPadding : CGFloat = 0.0
         if let topInset = UIApplication.shared.windows.first?.safeAreaInsets.top{
@@ -128,21 +174,21 @@ class OpcionesIngresosViewController: UIViewController {
 extension OpcionesIngresosViewController: UITableViewDelegate, UITableViewDataSource{
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             //return IngresosModel.getList().count
-            return lista.count
+            return listaIngresos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath) as? CustomCell else{
            return UITableViewCell()
         }
-        let value = DataModel.getList()[indexPath.row]
-        cell.setData(value)
+        let value = listaIngresos[indexPath.row]
+        cell.setDataIngresos(value)
         return cell
     }
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let values = DataModel.getList()
+        let values = listaIngresos
         print("You tapped cell \(values[indexPath.row].nameIncome).")
     }
     

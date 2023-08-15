@@ -5,8 +5,8 @@
 //  Created by César Alejandro Guadarrama Ortega on 26/07/23.
 //
 
-import Foundation
-
+import UIKit
+/*
 struct DataModel{
     let logoPic: String
     let nameIncome: String
@@ -34,4 +34,69 @@ struct DataModel{
         return (list+list+list)
     }
     
+}*/
+
+
+//estructura de ingresos
+
+struct DataModelIngresos{
+    var logoPic: String
+    var logoPicMove: String
+    var nameIncome: String
+    var money: Double
+    var divisa: String
+    var move: Move
+    
+    init(logoPic: String, logoPicMove: String, nameIncome: String, money:Double, divisa: String, move: Move) {
+        self.logoPic = logoPic
+        self.logoPicMove = logoPicMove
+        self.nameIncome = nameIncome
+        self.money = money
+        self.divisa = divisa
+        self.move = move
+    }
+    
 }
+
+//Structura de Gastos
+
+struct DataModelGastos{
+    var logoPic: String
+    var logoPicMove: String
+    var nameSpent: String
+    var money: Double
+    var divisa: String
+    var move: Move
+    
+    init(logoPic: String, logoPicMove: String, nameSpent: String, money:Double, divisa: String, move: Move) {
+        self.logoPic = logoPic
+        self.logoPicMove = logoPicMove
+        self.nameSpent = nameSpent
+        self.money = money
+        self.divisa = divisa
+        self.move = move
+    }
+    
+}
+
+
+var listaIngresos = [
+    DataModelIngresos(logoPic: "IMG_1976-2", logoPicMove: "IMG_1976-2", nameIncome: "BBVA", money: 552.63, divisa: "MXN", move: Move(name: "BBVA", image: UIImage(named: "IMG_2099-2"))),
+    DataModelIngresos(logoPic: "IMG_1979-2",logoPicMove: "IMG_1976-2", nameIncome: "Efectivo", money: 700.0,divisa: "MXN", move: Move(name: "Efectivo", image: UIImage(named: "IMG_2102-2"))),
+    DataModelIngresos(logoPic: "IMG_1977-2",logoPicMove: "IMG_1976-2", nameIncome: "CETES", money: 11142.07,divisa: "MXN",move: Move(name: "CETES", image: UIImage(named: "IMG_2100-2"))),
+    DataModelIngresos(logoPic: "IMG_1978-2", logoPicMove: "IMG_1976-2", nameIncome: "Mercado Pago", money: 789.78,divisa: "MXN",move: Move(name: "Mercado Pago", image: UIImage(named: "IMG_2101-2")))
+    ]
+
+
+var listaGastos = [
+    DataModelGastos(logoPic: "IMG_2072-2",logoPicMove: "IMG_2072-2", nameSpent: "Comida", money: 503.00,divisa: "MXN", move: Move(name: "Comida", image: UIImage(named: "IMG_2095-2"))),
+    DataModelGastos(logoPic: "IMG_2075-2",logoPicMove: "IMG_2072-2", nameSpent: "Servicios", money: 3000.00,divisa: "MXN", move: Move(name: "Servicios", image: UIImage(named: "IMG_2094-2"))),
+    DataModelGastos(logoPic: "IMG_2077-2",logoPicMove: "IMG_2072-2", nameSpent: "Seguros", money: 2399.20,divisa: "MXN", move: Move(name: "Seguros", image: UIImage(named: "IMG_2096-2"))),
+    DataModelGastos(logoPic: "IMG_2079-2",logoPicMove: "IMG_2072-2", nameSpent: "Manutencion", money: 3500.00,divisa: "MXN", move: Move(name: "Manutencion", image: UIImage(named: "IMG_2097-2"))),
+    DataModelGastos(logoPic: "IMG_2082-2",logoPicMove: "IMG_2072-2", nameSpent: "Tarjetas de Credito", money: 503.00,divisa: "MXN", move: Move(name: "Tarjetas de Credito", image: UIImage(named: "IMG_2098-2"))),
+]
+
+
+
+
+

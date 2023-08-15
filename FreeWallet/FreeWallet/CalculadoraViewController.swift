@@ -11,7 +11,10 @@ class CalculadoraViewController: UIViewController {
     
     var nameCalculate: String? = ""
     var moneyCalculate: Double? = 0.0
+    var nameSelectMove: String? = ""
     var divisaClculate: String? = ""
+    
+    
     
     
     
@@ -28,6 +31,10 @@ class CalculadoraViewController: UIViewController {
         labelResult.text = "0"
         
     }
+    
+    
+    
+    
     
     // funcion para pasmar el numero en la etiqueta
     func pressNumber(number: String){
@@ -156,8 +163,49 @@ class CalculadoraViewController: UIViewController {
     }
     
     @IBAction func pressEnter(_ sender: UIButton) {
+        let ingreso: Double = Double(labelResult.text!) ?? 0.0
         
+        if nameSelectMove == "" {
+            let resultado = ingresarDinero(nombreIngreso: nameCalculate!, ingreso: ingreso)
+            
+            let viewControllerOpciones = navigationController?.viewControllers.first(where: { $0 is OpcionesIngresosViewController }) as? OpcionesIngresosViewController
+            viewControllerOpciones?.moneyActually = resultado
+        }else{
+            
+            _ = ingresarDinero(nombreIngreso: nameSelectMove!, ingreso: ingreso)
+            if let index = listaIngresos.firstIndex(where: { $0.nameIncome == nameCalculate}) {
+                print("Ingreso encontrado:")
+                print(listaIngresos[index].money)
+                listaIngresos[index].money -= ingreso
+                let resultado = listaIngresos[index].money
+                let viewControllerMover = navigationController?.viewControllers.first(where: { $0 is MoverViewController }) as? MoverViewController
+                viewControllerMover?.moneyTitle = resultado
+                
+            }
+            nameCalculate = ""
+            nameSelectMove = ""
+        }
+        
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
+    func ingresarDinero(nombreIngreso: String, ingreso: Double) -> Double{
+        var resultado: Double = 0.0
+        if let index = listaIngresos.firstIndex(where: { $0.nameIncome == nombreIngreso}) {
+            print("Ingreso encontrado:")
+            print(listaIngresos[index].money)
+            listaIngresos[index].money += ingreso
+            print(listaIngresos[index].money)
+            resultado = listaIngresos[index].money
+        } else {
+            print("Ingreso no encontrado.")
+        }
+        
+     return resultado
     }
     
     
 }
+
+
