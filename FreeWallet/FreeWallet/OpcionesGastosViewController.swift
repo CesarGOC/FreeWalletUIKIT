@@ -109,7 +109,7 @@ extension OpcionesGastosViewController: UITableViewDelegate, UITableViewDataSour
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let values = lista
-        print("You tapped cell \(values[indexPath.row].nameSpent).")
+        print("You tapped cell \(values[indexPath.row].name).")
     }
 }
 

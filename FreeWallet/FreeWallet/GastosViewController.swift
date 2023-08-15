@@ -49,6 +49,14 @@ class GastosViewController: UIViewController {
         tableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "opcionesGastos"{
             let vistaOpciones = segue.destination as! OpcionesGastosViewController
@@ -103,8 +111,8 @@ extension GastosViewController: UITableViewDelegate, UITableViewDataSource{
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let values = listaGastos
-        print("You tapped cell \(values[indexPath.row].nameSpent).")
-        nameSelect = values[indexPath.row].nameSpent
+        print("You tapped cell \(values[indexPath.row].name).")
+        nameSelect = values[indexPath.row].name
         moneySelect = values[indexPath.row].money
         divisaSelect = values[indexPath.row].divisa
         

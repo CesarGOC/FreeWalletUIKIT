@@ -147,8 +147,8 @@ extension IngresosViewController: UITableViewDelegate, UITableViewDataSource{
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let values = listaIngresos
-        print("You tapped cell \(values[indexPath.row].nameIncome).")
-        nameSelect = values[indexPath.row].nameIncome
+        print("You tapped cell \(values[indexPath.row].name).")
+        nameSelect = values[indexPath.row].name
         moneySelect = values[indexPath.row].money
         divisaSelect = values[indexPath.row].divisa
         performSegue(withIdentifier: "opcionesIngresos", sender: nil)

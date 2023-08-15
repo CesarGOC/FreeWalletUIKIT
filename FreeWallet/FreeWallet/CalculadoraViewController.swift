@@ -14,6 +14,8 @@ class CalculadoraViewController: UIViewController {
     var nameSelectMove: String? = ""
     var divisaClculate: String? = ""
     
+    var allOptions: [DataModel] = []
+    
     
     
     
@@ -166,43 +168,55 @@ class CalculadoraViewController: UIViewController {
         let ingreso: Double = Double(labelResult.text!) ?? 0.0
         
         if nameSelectMove == "" {
-            let resultado = ingresarDinero(nombreIngreso: nameCalculate!, ingreso: ingreso)
             
+            ingresarDinero(nombreSelect : nameCalculate!,nombreAnterior: nil, ingreso: ingreso)
+            let resultado = buscarIngreso(nombreIngreso: nameCalculate!)
             let viewControllerOpciones = navigationController?.viewControllers.first(where: { $0 is OpcionesIngresosViewController }) as? OpcionesIngresosViewController
             viewControllerOpciones?.moneyActually = resultado
         }else{
-            
-            _ = ingresarDinero(nombreIngreso: nameSelectMove!, ingreso: ingreso)
-            if let index = listaIngresos.firstIndex(where: { $0.nameIncome == nameCalculate}) {
-                print("Ingreso encontrado:")
-                print(listaIngresos[index].money)
-                listaIngresos[index].money -= ingreso
-                let resultado = listaIngresos[index].money
+            if moneyCalculate != 0{
+                
+                ingresarDinero(nombreSelect: nameSelectMove!,nombreAnterior: nameCalculate, ingreso: ingreso)
+                let resultado = buscarIngreso(nombreIngreso: nameCalculate!)
                 let viewControllerMover = navigationController?.viewControllers.first(where: { $0 is MoverViewController }) as? MoverViewController
                 viewControllerMover?.moneyTitle = resultado
-                
             }
-            nameCalculate = ""
-            nameSelectMove = ""
         }
+        nameCalculate = ""
+        nameSelectMove = ""
         
         navigationController?.popViewController(animated: true)
         
     }
     
-    func ingresarDinero(nombreIngreso: String, ingreso: Double) -> Double{
-        var resultado: Double = 0.0
-        if let index = listaIngresos.firstIndex(where: { $0.nameIncome == nombreIngreso}) {
-            print("Ingreso encontrado:")
-            print(listaIngresos[index].money)
-            listaIngresos[index].money += ingreso
-            print(listaIngresos[index].money)
-            resultado = listaIngresos[index].money
-        } else {
-            print("Ingreso no encontrado.")
-        }
+    func ingresarDinero(nombreSelect: String, nombreAnterior: String?, ingreso: Double){
         
-     return resultado
+        
+        if let indexIngreso = listaIngresos.firstIndex(where: { $0.name == nombreSelect }) {
+            print("IngresoEncontrado:")
+            listaIngresos[indexIngreso].money += ingreso
+            if let indexIngresoAux = listaIngresos.firstIndex(where: { $0.name == nombreAnterior }) {
+                listaIngresos[indexIngresoAux].money -= ingreso
+            }
+            
+        } else if let indexGasto = listaGastos.firstIndex(where: { $0.name == nombreSelect }) {
+            print("Gasto encontrado")
+            listaGastos[indexGasto].money += ingreso
+            if let indexIngresoAux = listaIngresos.firstIndex(where: { $0.name == nombreAnterior }) {
+                listaIngresos[indexIngresoAux].money -= ingreso
+            }
+        } else {
+            print("Elemento no encontrado en ningún arreglo.")
+        }
+    }
+    
+    func buscarIngreso(nombreIngreso: String) -> Double{
+        var resultado: Double = 0.0
+        if let indexIngreso = listaIngresos.firstIndex(where: { $0.name == nombreIngreso}) {
+            print("IngresoEncontrado:")
+            resultado = listaIngresos[indexIngreso].money
+        }
+        return resultado
     }
     
     

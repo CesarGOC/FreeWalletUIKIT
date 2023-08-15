@@ -35,7 +35,11 @@ class OpcionesIngresosViewController: UIViewController {
         performSegue(withIdentifier: "modificarIngreso", sender: sender)
     }
     @IBAction func pressMove(_ sender: UIButton) {
-        performSegue(withIdentifier: "mover", sender: sender)
+        if moneyActually != 0{
+            performSegue(withIdentifier: "mover", sender: sender)
+        }else{
+            showAlert()
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mover"{
@@ -189,8 +193,20 @@ extension OpcionesIngresosViewController: UITableViewDelegate, UITableViewDataSo
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let values = listaIngresos
-        print("You tapped cell \(values[indexPath.row].nameIncome).")
+        print("You tapped cell \(values[indexPath.row].name).")
     }
     
-
+    // alerta de activos en 0.0
+    
+    func showAlert(){
+        let alert = UIAlertController(title: "Alert", message: "No tines fondos suficientes", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(alert, animated: true)
+    }
+    
+    func showActionSheet(){
+        let actionSheet = UIAlertController(title: "Alert", message: "No tines fondos suficientes", preferredStyle: .alert)
+        actionSheet.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(actionSheet, animated: true)
+    }
 }
