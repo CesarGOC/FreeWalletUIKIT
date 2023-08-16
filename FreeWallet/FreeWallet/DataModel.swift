@@ -47,6 +47,7 @@ struct DataModel{
     var money: Double
     var divisa: String
     var move: Move
+    var movimientos: [Movimientos] = []
     
     init(type: String, logoPic: String, logoPicMove: String, name: String, money:Double, divisa: String, move: Move) {
         self.type = type

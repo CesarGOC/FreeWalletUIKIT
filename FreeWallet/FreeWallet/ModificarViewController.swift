@@ -35,6 +35,56 @@ class ModificarViewController: UIViewController {
         textFieldMoneda.text = divisaModify
         
     }
+    
+    @IBAction func pressConfirmar(_ sender: UIButton) {
+        var nameAuxI: String = ""
+        var moneyAuxI: Double = 0.0
+        var divisaAuxI: String = ""
+        var nameAuxG: String = ""
+        var moneyAuxG: Double = 0.0
+        var divisaAuxG: String = ""
+        
+        if let indexIngreso = listaIngresos.firstIndex(where: { $0.name == nameModify }) {
+            print("Ingreso encontrado:")
+            listaIngresos[indexIngreso].name = textFieldNombre.text!
+            listaIngresos[indexIngreso].move.name = textFieldNombre.text!
+            nameAuxI = listaIngresos[indexIngreso].name
+            listaIngresos[indexIngreso].money = Double(textFieldMonto.text!) ?? 0.0
+            moneyAuxI = listaIngresos[indexIngreso].money
+            listaIngresos[indexIngreso].divisa = textFieldMoneda.text!
+            divisaAuxI = listaIngresos[indexIngreso].divisa
+            
+            
+        } else if let indexGasto = listaGastos.firstIndex(where: { $0.name == nameModify }) {
+            print("Gasto encontrado")
+            listaGastos[indexGasto].name = textFieldNombre.text!
+            listaGastos[indexGasto].move.name = textFieldNombre.text!
+            nameAuxG = listaGastos[indexGasto].name
+            listaGastos[indexGasto].money += Double(textFieldMonto.text!) ?? 0.0
+            moneyAuxG = listaGastos[indexGasto].money
+            listaGastos[indexGasto].divisa = textFieldMoneda.text!
+            divisaAuxG = listaGastos[indexGasto].divisa
+        } else {
+            print("Elemento no encontrado en ningún arreglo.")
+        }
+        
+        
+        let viewControllerOpcionesIngresos = navigationController?.viewControllers.first(where: { $0 is OpcionesIngresosViewController }) as? OpcionesIngresosViewController
+        viewControllerOpcionesIngresos?.nameOption = nameAuxI
+        viewControllerOpcionesIngresos?.moneyActually = moneyAuxI
+        viewControllerOpcionesIngresos?.divisaType = divisaAuxI
+        
+        let viewControllerOpcionesGastos = navigationController?.viewControllers.first(where: { $0 is OpcionesGastosViewController }) as? OpcionesGastosViewController
+        viewControllerOpcionesGastos?.nameOption = nameAuxG
+        viewControllerOpcionesGastos?.moneyActually = moneyAuxG
+        viewControllerOpcionesGastos?.divisaType = divisaAuxG
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func switchTotal(_ sender: UISwitch) {
+    }
+    
 }
 
 

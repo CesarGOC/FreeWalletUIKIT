@@ -97,10 +97,11 @@ class OpcionesIngresosViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-          super.viewWillAppear(animated)
-          // Aquí puedes actualizar o realizar acciones necesarias
-          print("ViewControllerA will appear")
-          labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
+        super.viewWillAppear(animated)
+        // Aquí puedes actualizar o realizar acciones necesarias
+        print("ViewControllerA will appear")
+        labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
+        labelTittle.text = nameOption!
         tableView.reloadData()
           
       }

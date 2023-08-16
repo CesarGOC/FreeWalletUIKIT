@@ -22,10 +22,21 @@ class MoverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         labelSelect.text = nameTitle
         labelMoney.text = "$\(String(moneyTitle))"
+        
+        
+        for ingreso in listaIngresos{
+            moves.append(ingreso.move)
+        }
+        for gasto in listaGastos{
+            moves.append(gasto.move)
+        }
+        if let index = moves.firstIndex(where: { $0.name == nameTitle}){
+        
+        print("Ingreso o gasto encontrado:")
+        moves.remove(at: index)
+    }
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -37,11 +48,14 @@ class MoverViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         labelMoney.text = "$\(String(moneyTitle))"
+        labelSelect.text = nameTitle
     }
     
     //antes de que cierre la vista
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+
         let viewControllerOpcionesIngresos = navigationController?.viewControllers.first(where: { $0 is OpcionesIngresosViewController }) as? OpcionesIngresosViewController
         viewControllerOpcionesIngresos?.moneyActually = moneyTitle
     }
@@ -74,18 +88,6 @@ class MoverViewController: UIViewController {
 extension MoverViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            
-            for ingreso in listaIngresos{
-                moves.append(ingreso.move)
-            }
-            for gasto in listaGastos{
-                moves.append(gasto.move)
-            }
-        if let index = moves.firstIndex(where: { $0.name == nameTitle}){
-            
-            print("Ingreso o gasto encontrado:")
-            moves.remove(at: index)
-        }
         return moves.count
     }
     

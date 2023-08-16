@@ -52,6 +52,17 @@ class OpcionesGastosViewController: UIViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Aquí puedes actualizar o realizar acciones necesarias
+        labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
+        labelTittle.text = nameOption!
+        tableView.reloadData()
+          
+      }
+    
+    
+    
     
     lazy var tableView : UITableView = {
         let tableView = UITableView()
