@@ -79,5 +79,11 @@ class CustomCell: UITableViewCell {
         moneyLabel.text = "$\(String(spent.money))"
         nameIncomeLabel.text = spent.name
     }
+    
+    func setDataMovimientos(_ movimiento: Movimientos){
+        logoPic.image = UIImage(named: movimiento.image )
+        moneyLabel.text = "$\(String(movimiento.monto))"
+        nameIncomeLabel.text = movimiento.date
+    }
 
 }

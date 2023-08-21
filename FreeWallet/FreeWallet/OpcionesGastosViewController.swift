@@ -13,8 +13,8 @@ class OpcionesGastosViewController: UIViewController {
     var nameOption: String? = ""
     var moneyActually: Double? = 0.0
     var divisaType: String? = ""
+    var listaMovimientos: [Movimientos] = []
     
-    var lista = listaGastos
     
     @IBOutlet var labelTittle: UILabel!
     @IBOutlet var modifyButton: UIButton!
@@ -47,6 +47,11 @@ class OpcionesGastosViewController: UIViewController {
         labelTittle.text = nameOption
         labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
         
+        if let indexGasto = listaGastos.firstIndex(where: { $0.name == nameOption }) {
+            print("Gasto Encontrado:")
+            listaMovimientos = listaGastos[indexGasto].movimientos
+        }
+        
         configureView()
         tableView.reloadData()
     }
@@ -57,6 +62,12 @@ class OpcionesGastosViewController: UIViewController {
         // Aquí puedes actualizar o realizar acciones necesarias
         labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
         labelTittle.text = nameOption!
+        
+        if let indexGasto = listaGastos.firstIndex(where: { $0.name == nameOption }) {
+            print("Gasto Encontrado:")
+            listaMovimientos = listaGastos[indexGasto].movimientos
+        }
+        
         tableView.reloadData()
           
       }
@@ -105,22 +116,22 @@ class OpcionesGastosViewController: UIViewController {
 extension OpcionesGastosViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return IngresosModel.getList().count
-        return lista.count
+        return listaMovimientos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath) as? CustomCell else{
             return UITableViewCell()
         }
-        let value = lista[indexPath.row]
-        cell.setDataGastos(value)
+        let value = listaMovimientos[indexPath.row]
+        cell.setDataMovimientos(value)
         return cell
     }
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let values = lista
-        print("You tapped cell \(values[indexPath.row].name).")
+        let values = listaMovimientos
+        //print("You tapped cell \(values[indexPath.row].name).")
     }
 }
 

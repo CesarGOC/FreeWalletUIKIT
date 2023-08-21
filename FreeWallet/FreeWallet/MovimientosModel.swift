@@ -9,7 +9,7 @@ import UIKit
 
 struct Movimientos{
     let type: String
-    let image: UIImage!
+    let image: String
     let monto: Double
-    let date: Date
+    let date: String
 }

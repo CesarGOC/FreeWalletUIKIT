@@ -17,6 +17,9 @@ class GastosViewController: UIViewController {
     @IBOutlet var linePink: UIView!
     
     
+    @IBAction func pressAdd(_ sender: UIButton) {
+        performSegue(withIdentifier: "agregarGasto", sender: nil)
+    }
     
     @IBAction func editing(_ sender: UIButton) {
         if tableView.isEditing{
@@ -64,6 +67,10 @@ class GastosViewController: UIViewController {
             vistaOpciones.moneyActually = moneySelect!
             vistaOpciones.divisaType = divisaSelect!
         }
+        if segue.identifier == "agregarGasto"{
+            let vistaAgregar = segue.destination as! AgregarViewController
+            vistaAgregar.type = "Gasto"
+            }
     }
     
     private func configureView(){

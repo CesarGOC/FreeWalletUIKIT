@@ -26,6 +26,9 @@ class IngresosViewController: UIViewController {
         linePink.layer.cornerRadius = 5
     }
     
+    @IBAction func pressAdd(_ sender: UIButton) {
+        performSegue(withIdentifier: "agregarIngreso", sender: nil)
+    }
     
     @IBAction func editing(_ sender: UIButton) {
         if tableView.isEditing{
@@ -124,6 +127,10 @@ class IngresosViewController: UIViewController {
             vistaOpciones.moneyActually = moneySelect!
             vistaOpciones.divisaType = divisaSelect!
         }
+        if segue.identifier == "agregarIngreso"{
+            let vistaAgregar = segue.destination as! AgregarViewController
+            vistaAgregar.type = "Ingreso"
+            }
     }
 
     

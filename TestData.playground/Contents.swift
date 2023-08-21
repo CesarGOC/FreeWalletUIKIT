@@ -1,6 +1,6 @@
 import UIKit
 
-
+import Foundation
 
 struct Move {
     var name: String
@@ -48,5 +48,14 @@ struct DataModel{
     }
     
 }
+
+
+let fecha = Date()
+let formatoFecha = DateFormatter()
+
+formatoFecha.dateStyle = .long
+let transaccion = formatoFecha.string(from: fecha)
+
+print(transaccion)
 
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C2AE5458495DE9BE38B8908 /* Pods_FreeWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A320A20484F795E237DD53 /* Pods_FreeWallet.framework */; };
 		DB0D7E462A8D328500C51512 /* MovimientosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D7E452A8D328500C51512 /* MovimientosModel.swift */; };
+		DB0D7E482A93B9A600C51512 /* AgregarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D7E472A93B9A600C51512 /* AgregarViewController.swift */; };
 		DB2575A32A7825C400EE79E0 /* OpcionesIngresosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2575A22A7825C400EE79E0 /* OpcionesIngresosViewController.swift */; };
 		DB2575A72A7828DA00EE79E0 /* MoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2575A62A7828DA00EE79E0 /* MoverViewController.swift */; };
 		DB2575A92A78385000EE79E0 /* MoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2575A82A78385000EE79E0 /* MoverCollectionViewCell.swift */; };
@@ -33,6 +34,7 @@
 		54A320A20484F795E237DD53 /* Pods_FreeWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreeWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		827593EFD429E9C1DE072047 /* Pods-FreeWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeWallet.release.xcconfig"; path = "Target Support Files/Pods-FreeWallet/Pods-FreeWallet.release.xcconfig"; sourceTree = "<group>"; };
 		DB0D7E452A8D328500C51512 /* MovimientosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimientosModel.swift; sourceTree = "<group>"; };
+		DB0D7E472A93B9A600C51512 /* AgregarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarViewController.swift; sourceTree = "<group>"; };
 		DB2575A22A7825C400EE79E0 /* OpcionesIngresosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpcionesIngresosViewController.swift; sourceTree = "<group>"; };
 		DB2575A62A7828DA00EE79E0 /* MoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoverViewController.swift; sourceTree = "<group>"; };
 		DB2575A82A78385000EE79E0 /* MoverCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoverCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				DB2F56CF2A7181790058963D /* IngresosCustomCell.swift */,
 				DB2F56B72A7056320058963D /* ViewController.swift */,
 				DB2F56C72A717F660058963D /* IngresosViewController.swift */,
+				DB0D7E472A93B9A600C51512 /* AgregarViewController.swift */,
 				DB2575A22A7825C400EE79E0 /* OpcionesIngresosViewController.swift */,
 				DB2575AC2A79688400EE79E0 /* OpcionesGastosViewController.swift */,
 				DB2575A82A78385000EE79E0 /* MoverCollectionViewCell.swift */,
@@ -256,6 +259,7 @@
 				DB0D7E462A8D328500C51512 /* MovimientosModel.swift in Sources */,
 				DB2F56B62A7056320058963D /* SceneDelegate.swift in Sources */,
 				DB2F56CC2A7180000058963D /* DataModel.swift in Sources */,
+				DB0D7E482A93B9A600C51512 /* AgregarViewController.swift in Sources */,
 				DB2F56D02A7181790058963D /* IngresosCustomCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

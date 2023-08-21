@@ -60,7 +60,7 @@ class ModificarViewController: UIViewController {
             listaGastos[indexGasto].name = textFieldNombre.text!
             listaGastos[indexGasto].move.name = textFieldNombre.text!
             nameAuxG = listaGastos[indexGasto].name
-            listaGastos[indexGasto].money += Double(textFieldMonto.text!) ?? 0.0
+            listaGastos[indexGasto].money = Double(textFieldMonto.text!) ?? 0.0
             moneyAuxG = listaGastos[indexGasto].money
             listaGastos[indexGasto].divisa = textFieldMoneda.text!
             divisaAuxG = listaGastos[indexGasto].divisa

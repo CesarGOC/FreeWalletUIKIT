@@ -18,6 +18,7 @@ class OpcionesIngresosViewController: UIViewController {
     var nameOption: String? = ""
     var moneyActually: Double? = 0.0
     var divisaType: String? = ""
+    var listaMovimientos: [Movimientos] = []
     
     
     
@@ -88,6 +89,11 @@ class OpcionesIngresosViewController: UIViewController {
         labelTittle.text = nameOption!
         labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
         
+        if let indexIngreso = listaIngresos.firstIndex(where: { $0.name == nameOption }) {
+            print("IngresoEncontrado:")
+            listaMovimientos = listaIngresos[indexIngreso].movimientos
+        }
+        
         
         configureView(tableView: tableView)
         tableView.reloadData()
@@ -102,9 +108,22 @@ class OpcionesIngresosViewController: UIViewController {
         print("ViewControllerA will appear")
         labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
         labelTittle.text = nameOption!
+        
+        if let indexIngreso = listaIngresos.firstIndex(where: { $0.name == nameOption }) {
+            print("IngresoEncontrado:")
+            listaMovimientos = listaIngresos[indexIngreso].movimientos
+        }
         tableView.reloadData()
           
       }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //tableView.reloadData()
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
+        }
+    }
     
 
     
@@ -179,22 +198,22 @@ class OpcionesIngresosViewController: UIViewController {
 extension OpcionesIngresosViewController: UITableViewDelegate, UITableViewDataSource{
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             //return IngresosModel.getList().count
-            return listaIngresos.count
+            return listaMovimientos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(CustomCell.self)", for: indexPath) as? CustomCell else{
            return UITableViewCell()
         }
-        let value = listaIngresos[indexPath.row]
-        cell.setDataIngresos(value)
+        let value = listaMovimientos[indexPath.row]
+        cell.setDataMovimientos(value)
         return cell
     }
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let values = listaIngresos
-        print("You tapped cell \(values[indexPath.row].name).")
+        let values = listaMovimientos
+        //print("You tapped cell \(values[indexPath.row].name).")
     }
     
     // alerta de activos en 0.0

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class CalculadoraViewController: UIViewController {
     
@@ -190,20 +191,30 @@ class CalculadoraViewController: UIViewController {
     }
     
     func ingresarDinero(nombreSelect: String, nombreAnterior: String?, ingreso: Double){
-        
+        //Obtener la fecha
+        let fecha = Date()
+        let formatoFecha = DateFormatter()
+        formatoFecha.dateStyle = .full
+        let transaccion = formatoFecha.string(from: fecha)
         
         if let indexIngreso = listaIngresos.firstIndex(where: { $0.name == nombreSelect }) {
             print("IngresoEncontrado:")
             listaIngresos[indexIngreso].money += ingreso
+            //Actualizacion de arreglo de movimientos
+            
+            listaIngresos[indexIngreso].movimientos.insert(Movimientos(type: "Ingreso", image: "IMG_1979-2", monto: ingreso, date: transaccion), at: 0)
             if let indexIngresoAux = listaIngresos.firstIndex(where: { $0.name == nombreAnterior }) {
                 listaIngresos[indexIngresoAux].money -= ingreso
+                listaIngresos[indexIngresoAux].movimientos.insert(Movimientos(type: "Gasto", image: "IMG_2077-2", monto: ingreso, date: transaccion), at: 0)
             }
             
         } else if let indexGasto = listaGastos.firstIndex(where: { $0.name == nombreSelect }) {
             print("Gasto encontrado")
             listaGastos[indexGasto].money += ingreso
+            listaGastos[indexGasto].movimientos.insert(Movimientos(type: "Ingreso", image: "IMG_1979-2", monto: ingreso, date: transaccion), at: 0)
             if let indexIngresoAux = listaIngresos.firstIndex(where: { $0.name == nombreAnterior }) {
                 listaIngresos[indexIngresoAux].money -= ingreso
+                listaIngresos[indexIngresoAux].movimientos.insert(Movimientos(type: "Gasto", image: "IMG_2077-2", monto: ingreso, date: transaccion), at: 0)
             }
         } else {
             print("Elemento no encontrado en ningún arreglo.")
