@@ -14,9 +14,12 @@ class AgregarViewController: UIViewController {
     var moneyAdd: Double = 0.0
     var divisaAdd: String = ""
     var type: String = ""
+    var iconAdd: UIImage! = UIImage(named: "IMG_2102-2")
+    var iconMoveAdd: UIImage! = UIImage(named: "IMG_2102-2")
     
     
     var pickerDivisa = UIPickerView()
+    @IBOutlet var imageButton: UIButton!
     
     @IBOutlet var labeltype: UILabel!
     
@@ -34,10 +37,43 @@ class AgregarViewController: UIViewController {
         pickerDivisa.dataSource = self
         
         
+        
+        if let imagen = iconAdd{
+            let tamañoDeseado = CGSize(width: 100, height: 100)
+               
+               // Redimensionar la imagen al tamaño deseado
+               let imagenRedimensionada = UIGraphicsImageRenderer(size: tamañoDeseado).image { _ in
+                   imagen.draw(in: CGRect(origin: .zero, size: tamañoDeseado))
+               }
+            imageButton.setImage(imagenRedimensionada, for: .normal)
+            
+        }
         labeltype.text = type
 
     }
+    
+    
+    //caundo se carga la vista por segunda vez hasta N veces
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let imagen = iconAdd{
+            let tamañoDeseado = CGSize(width: 100, height: 100)
+               
+               // Redimensionar la imagen al tamaño deseado
+               let imagenRedimensionada = UIGraphicsImageRenderer(size: tamañoDeseado).image { _ in
+                   imagen.draw(in: CGRect(origin: .zero, size: tamañoDeseado))
+               }
+            imageButton.setImage(imagenRedimensionada, for: .normal)
+            
+        }
+       
+    }
    
+    @IBAction func pressSelectImage(_ sender: UIButton) {
+        print("Se presiono boton de imagen")
+        performSegue(withIdentifier: "agregarIcon", sender: nil)
+        
+    }
     @IBAction func pressConfirmar(_ sender: UIButton) {
         
         if validarCampos() == false{
@@ -49,9 +85,9 @@ class AgregarViewController: UIViewController {
             
             
             if type == "Ingreso"{
-                listaIngresos.append(DataModel(type: "Ingreso", logoPic: "IMG_1979-2", logoPicMove: "IMG_1979-2", name: nameAdd, money: moneyAdd, divisa: divisaAdd, move: Move(name: nameAdd, image: UIImage(named: "IMG_2102-2"))))
+                listaIngresos.append(DataModel(type: "Ingreso", logoPic: iconAdd, logoPicMove: "IMG_1979-2", name: nameAdd, money: moneyAdd, divisa: divisaAdd, move: Move(name: nameAdd, image: iconMoveAdd)))
             }else{
-                listaGastos.append(DataModel(type: "Gasto", logoPic: "IMG_2072-2", logoPicMove: "IMG_2072-2", name: nameAdd, money: moneyAdd, divisa: divisaAdd, move: Move(name: nameAdd, image: UIImage(named: "IMG_2095-2"))))
+                listaGastos.append(DataModel(type: "Gasto", logoPic: iconAdd, logoPicMove: "IMG_2072-2", name: nameAdd, money: moneyAdd, divisa: divisaAdd, move: Move(name: nameAdd, image: iconMoveAdd)))
             }
             
             navigationController?.popViewController(animated: true)

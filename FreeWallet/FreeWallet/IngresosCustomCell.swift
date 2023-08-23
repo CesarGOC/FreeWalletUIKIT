@@ -8,6 +8,11 @@
 import UIKit
 
 class CustomCell: UITableViewCell {
+    
+    let atributos: [NSAttributedString.Key: Any] = [
+                .foregroundColor: UIColor.red
+            ]
+    
     private var logoPic : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -69,20 +74,21 @@ class CustomCell: UITableViewCell {
                 ])
     }
     func setDataIngresos(_ income: DataModel){
-        logoPic.image = UIImage(named: income.logoPic)
-        moneyLabel.text = "$\(String(income.money))"
+        logoPic.image = income.logoPic
+        moneyLabel.text = "$\(String(format: "%.2f",income.money)) \(income.divisa)"
         nameIncomeLabel.text = income.name
     }
     
     func setDataGastos(_ spent: DataModel){
-        logoPic.image = UIImage(named: spent.logoPic)
-        moneyLabel.text = "$\(String(spent.money))"
+        let textoModificado = NSAttributedString(string: "$\(String(format: "%.2f",spent.money)) \(spent.divisa)", attributes: atributos)
+        logoPic.image = spent.logoPic
+        moneyLabel.attributedText = textoModificado
         nameIncomeLabel.text = spent.name
     }
     
     func setDataMovimientos(_ movimiento: Movimientos){
         logoPic.image = UIImage(named: movimiento.image )
-        moneyLabel.text = "$\(String(movimiento.monto))"
+        moneyLabel.text = "$\(String(format: "%.2f", movimiento.monto))"
         nameIncomeLabel.text = movimiento.date
     }
 

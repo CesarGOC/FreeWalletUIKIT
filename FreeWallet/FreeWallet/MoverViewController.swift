@@ -23,7 +23,7 @@ class MoverViewController: UIViewController {
         super.viewDidLoad()
         
         labelSelect.text = nameTitle
-        labelMoney.text = "$\(String(moneyTitle))"
+        labelMoney.text = "$\(String(format: "%.2f",moneyTitle))"
         
         
         for ingreso in listaIngresos{
@@ -47,7 +47,7 @@ class MoverViewController: UIViewController {
     //caundo se carga la vista por segunda vez hasta N veces
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        labelMoney.text = "$\(String(moneyTitle))"
+        labelMoney.text = "$\(String(format: "%.2f", moneyTitle))"
         labelSelect.text = nameTitle
     }
     

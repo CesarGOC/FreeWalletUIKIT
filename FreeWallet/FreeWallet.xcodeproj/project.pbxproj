@@ -10,6 +10,9 @@
 		5C2AE5458495DE9BE38B8908 /* Pods_FreeWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A320A20484F795E237DD53 /* Pods_FreeWallet.framework */; };
 		DB0D7E462A8D328500C51512 /* MovimientosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D7E452A8D328500C51512 /* MovimientosModel.swift */; };
 		DB0D7E482A93B9A600C51512 /* AgregarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D7E472A93B9A600C51512 /* AgregarViewController.swift */; };
+		DB0D7E4A2A950D8100C51512 /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D7E492A950D8100C51512 /* IconViewController.swift */; };
+		DB0D7E4C2A950E2E00C51512 /* IconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D7E4B2A950E2E00C51512 /* IconModel.swift */; };
+		DB0D7E4E2A95224500C51512 /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D7E4D2A95224500C51512 /* IconCollectionViewCell.swift */; };
 		DB2575A32A7825C400EE79E0 /* OpcionesIngresosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2575A22A7825C400EE79E0 /* OpcionesIngresosViewController.swift */; };
 		DB2575A72A7828DA00EE79E0 /* MoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2575A62A7828DA00EE79E0 /* MoverViewController.swift */; };
 		DB2575A92A78385000EE79E0 /* MoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2575A82A78385000EE79E0 /* MoverCollectionViewCell.swift */; };
@@ -35,6 +38,9 @@
 		827593EFD429E9C1DE072047 /* Pods-FreeWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeWallet.release.xcconfig"; path = "Target Support Files/Pods-FreeWallet/Pods-FreeWallet.release.xcconfig"; sourceTree = "<group>"; };
 		DB0D7E452A8D328500C51512 /* MovimientosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimientosModel.swift; sourceTree = "<group>"; };
 		DB0D7E472A93B9A600C51512 /* AgregarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarViewController.swift; sourceTree = "<group>"; };
+		DB0D7E492A950D8100C51512 /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
+		DB0D7E4B2A950E2E00C51512 /* IconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconModel.swift; sourceTree = "<group>"; };
+		DB0D7E4D2A95224500C51512 /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB2575A22A7825C400EE79E0 /* OpcionesIngresosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpcionesIngresosViewController.swift; sourceTree = "<group>"; };
 		DB2575A62A7828DA00EE79E0 /* MoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoverViewController.swift; sourceTree = "<group>"; };
 		DB2575A82A78385000EE79E0 /* MoverCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoverCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -109,6 +115,9 @@
 				DB2F56B32A7056320058963D /* AppDelegate.swift */,
 				DB2F56CB2A7180000058963D /* DataModel.swift */,
 				DB2575AA2A783B5500EE79E0 /* MoveModel.swift */,
+				DB0D7E4B2A950E2E00C51512 /* IconModel.swift */,
+				DB0D7E4D2A95224500C51512 /* IconCollectionViewCell.swift */,
+				DB0D7E492A950D8100C51512 /* IconViewController.swift */,
 				DB0D7E452A8D328500C51512 /* MovimientosModel.swift */,
 				DB2F56CF2A7181790058963D /* IngresosCustomCell.swift */,
 				DB2F56B72A7056320058963D /* ViewController.swift */,
@@ -247,13 +256,16 @@
 			files = (
 				DB2575A92A78385000EE79E0 /* MoverCollectionViewCell.swift in Sources */,
 				DB2575AD2A79688400EE79E0 /* OpcionesGastosViewController.swift in Sources */,
+				DB0D7E4C2A950E2E00C51512 /* IconModel.swift in Sources */,
 				DB2575A32A7825C400EE79E0 /* OpcionesIngresosViewController.swift in Sources */,
 				DB2575AF2A79793A00EE79E0 /* ModificarViewController.swift in Sources */,
 				DB2F56C82A717F660058963D /* IngresosViewController.swift in Sources */,
 				DB2F56B82A7056320058963D /* ViewController.swift in Sources */,
 				DB2F56B42A7056320058963D /* AppDelegate.swift in Sources */,
+				DB0D7E4A2A950D8100C51512 /* IconViewController.swift in Sources */,
 				DB2F56CA2A717F910058963D /* GastosViewController.swift in Sources */,
 				DB2575B12A7AAED100EE79E0 /* CalculadoraViewController.swift in Sources */,
+				DB0D7E4E2A95224500C51512 /* IconCollectionViewCell.swift in Sources */,
 				DB2575A72A7828DA00EE79E0 /* MoverViewController.swift in Sources */,
 				DB2575AB2A783B5500EE79E0 /* MoveModel.swift in Sources */,
 				DB0D7E462A8D328500C51512 /* MovimientosModel.swift in Sources */,
