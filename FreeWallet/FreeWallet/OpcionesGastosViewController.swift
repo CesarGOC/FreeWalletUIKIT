@@ -45,7 +45,7 @@ class OpcionesGastosViewController: UIViewController {
         modifyButton.clipsToBounds = true
         
         labelTittle.text = nameOption
-        labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
+        labelMoney.text = String("$\(String(format: "%.2f", moneyActually!)) \(divisaType!)")
         
         if let indexGasto = listaGastos.firstIndex(where: { $0.name == nameOption }) {
             print("Gasto Encontrado:")
@@ -60,7 +60,7 @@ class OpcionesGastosViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Aquí puedes actualizar o realizar acciones necesarias
-        labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
+        labelMoney.text = String("$\(String(format: "%.2f", moneyActually!)) \(divisaType!)")
         labelTittle.text = nameOption!
         
         if let indexGasto = listaGastos.firstIndex(where: { $0.name == nameOption }) {

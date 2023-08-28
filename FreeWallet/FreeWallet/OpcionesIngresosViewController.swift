@@ -87,7 +87,7 @@ class OpcionesIngresosViewController: UIViewController {
         ingresarButton.clipsToBounds = true
         
         labelTittle.text = nameOption!
-        labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
+        labelMoney.text = String("$\(String(format: "%.2f", moneyActually!)) \(divisaType!)")
         
         if let indexIngreso = listaIngresos.firstIndex(where: { $0.name == nameOption }) {
             print("IngresoEncontrado:")
@@ -106,7 +106,7 @@ class OpcionesIngresosViewController: UIViewController {
         super.viewWillAppear(animated)
         // Aquí puedes actualizar o realizar acciones necesarias
         print("ViewControllerA will appear")
-        labelMoney.text = String("$\(moneyActually!) \(divisaType!)")
+        labelMoney.text = String("$\(String(format: "%.2f", moneyActually!)) \(divisaType!)")
         labelTittle.text = nameOption!
         
         if let indexIngreso = listaIngresos.firstIndex(where: { $0.name == nameOption }) {

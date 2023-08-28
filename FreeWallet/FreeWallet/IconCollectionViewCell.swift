@@ -12,6 +12,6 @@ class IconCollectionViewCell: UICollectionViewCell {
     
     
     func setup(with icon: Icon){
-        iconImage.image = icon.iconoPrincipal
+        iconImage.image = UIImage(named: icon.iconoPrincipal)
     }
 }

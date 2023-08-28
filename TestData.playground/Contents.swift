@@ -2,7 +2,7 @@ import UIKit
 
 import Foundation
 
-struct Move {
+struct Move: Codable{
     var name: String
     var image: String
 }
@@ -19,7 +19,7 @@ let moves: [Move] = [
     Move(name: "Tarjetas de Credito", image: "IMG_2098-2")
 ]
 
-
+/*
 struct DataModel{
     let logoPic: String
     let nameIncome: String
@@ -47,8 +47,26 @@ struct DataModel{
         return (list+list+list)
     }
     
+}*/
+
+
+struct Movimientos: Codable{
+    let type: String
+    let image: String
+    let monto: Double
+    let date: String
 }
 
+struct DataModel: Codable{
+    let type: String
+    var logoPic: String
+    var logoPicMove: String
+    var name: String
+    var money: Double
+    var divisa: String
+    var move: Move
+    var movimientos: [Movimientos] = []
+}
 
 let fecha = Date()
 let formatoFecha = DateFormatter()

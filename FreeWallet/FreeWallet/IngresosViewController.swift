@@ -68,6 +68,20 @@ class IngresosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*//Recuperar datos
+        if let ingresosRecuperados = UserDefaults.standard.array(forKey: keyIngresos) as? [[String: Any]] {
+            let personasInstances = ingresosRecuperados.map { personaDict in
+                return DataModel(nombre: personaDict["nombre"] as? String ?? "", edad: personaDict["edad"] as? Int ?? 0)
+            }
+            
+            for persona in personasInstances {
+                print("Nombre: \(persona.nombre), Edad: \(persona.edad)")
+            }
+        } else {
+            print("No se pudieron recuperar los datos")
+        }*/
+        
         bordesRedondos()
         configureView()
         tableView.reloadData()

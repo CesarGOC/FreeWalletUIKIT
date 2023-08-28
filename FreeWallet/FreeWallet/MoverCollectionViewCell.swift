@@ -14,7 +14,7 @@ class MoverCollectionViewCell: UICollectionViewCell {
     
     
     func setup(with move: Move){
-        imageItem.image = move.image
+        imageItem.image = UIImage(named: move.image)
         labelTittle.text = move.name
     }
 }

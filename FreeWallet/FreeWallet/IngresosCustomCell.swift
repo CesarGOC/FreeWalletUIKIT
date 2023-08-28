@@ -74,14 +74,14 @@ class CustomCell: UITableViewCell {
                 ])
     }
     func setDataIngresos(_ income: DataModel){
-        logoPic.image = income.logoPic
+        logoPic.image = UIImage(named: income.logoPic)
         moneyLabel.text = "$\(String(format: "%.2f",income.money)) \(income.divisa)"
         nameIncomeLabel.text = income.name
     }
     
     func setDataGastos(_ spent: DataModel){
         let textoModificado = NSAttributedString(string: "$\(String(format: "%.2f",spent.money)) \(spent.divisa)", attributes: atributos)
-        logoPic.image = spent.logoPic
+        logoPic.image = UIImage(named: spent.logoPic)
         moneyLabel.attributedText = textoModificado
         nameIncomeLabel.text = spent.name
     }

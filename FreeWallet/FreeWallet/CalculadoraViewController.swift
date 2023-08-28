@@ -15,6 +15,9 @@ class CalculadoraViewController: UIViewController {
     var nameSelectMove: String? = ""
     var divisaClculate: String? = ""
     
+    
+    let keyIngresos: String = "keyIngresos"
+    
     var allOptions: [DataModel] = []
     
     
@@ -32,6 +35,7 @@ class CalculadoraViewController: UIViewController {
         super.viewDidLoad()
         
         labelResult.text = "0"
+        
         
     }
     
@@ -203,6 +207,13 @@ class CalculadoraViewController: UIViewController {
             //Actualizacion de arreglo de movimientos
             
             listaIngresos[indexIngreso].movimientos.insert(Movimientos(type: "Ingreso", image: "IMG_1979-2", monto: ingreso, date: transaccion), at: 0)
+            
+            //guardar ingreso
+            /*let ingresosDictArray = listaIngresos.map { ingreso in
+                return ["tipo": ingreso.type, "logoPic": ingreso.logoPic, "logoPicMove": ingreso.logoPicMove, "name": ingreso.name, "money": ingreso.money, "divisa": ingreso.divisa, "move": ingreso.move, "movimientos": ingreso.movimientos]
+            }
+            UserDefaults.standard.set(ingresosDictArray, forKey: keyIngresos)*/
+            
             if let indexIngresoAux = listaIngresos.firstIndex(where: { $0.name == nombreAnterior }) {
                 listaIngresos[indexIngresoAux].money -= ingreso
                 listaIngresos[indexIngresoAux].movimientos.insert(Movimientos(type: "Gasto", image: "IMG_2077-2", monto: ingreso, date: transaccion), at: 0)

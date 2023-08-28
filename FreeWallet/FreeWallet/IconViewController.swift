@@ -10,8 +10,8 @@ import UIKit
 class IconViewController: UIViewController {
 
     
-    var selectIcon: UIImage! = UIImage(named: "IMG_2102-2")
-    var selectIconMove: UIImage! = UIImage(named: "IMG_2102-2")
+    var selectIcon: String = "IMG_2102-2"
+    var selectIconMove: String = "IMG_2102-2"
     
     @IBOutlet var collectionView: UICollectionView!
     

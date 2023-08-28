@@ -14,8 +14,8 @@ class AgregarViewController: UIViewController {
     var moneyAdd: Double = 0.0
     var divisaAdd: String = ""
     var type: String = ""
-    var iconAdd: UIImage! = UIImage(named: "IMG_2102-2")
-    var iconMoveAdd: UIImage! = UIImage(named: "IMG_2102-2")
+    var iconAdd:  String = "IMG_2102-2"
+    var iconMoveAdd: String = "IMG_2102-2"
     
     
     var pickerDivisa = UIPickerView()
@@ -38,7 +38,7 @@ class AgregarViewController: UIViewController {
         
         
         
-        if let imagen = iconAdd{
+        if let imagen = UIImage(named: iconAdd){
             let tamañoDeseado = CGSize(width: 100, height: 100)
                
                // Redimensionar la imagen al tamaño deseado
@@ -56,7 +56,7 @@ class AgregarViewController: UIViewController {
     //caundo se carga la vista por segunda vez hasta N veces
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let imagen = iconAdd{
+        if let imagen =  UIImage(named: iconAdd){
             let tamañoDeseado = CGSize(width: 100, height: 100)
                
                // Redimensionar la imagen al tamaño deseado
@@ -87,7 +87,7 @@ class AgregarViewController: UIViewController {
             if type == "Ingreso"{
                 listaIngresos.append(DataModel(type: "Ingreso", logoPic: iconAdd, logoPicMove: "IMG_1979-2", name: nameAdd, money: moneyAdd, divisa: divisaAdd, move: Move(name: nameAdd, image: iconMoveAdd)))
             }else{
-                listaGastos.append(DataModel(type: "Gasto", logoPic: iconAdd, logoPicMove: "IMG_2072-2", name: nameAdd, money: moneyAdd, divisa: divisaAdd, move: Move(name: nameAdd, image: iconMoveAdd)))
+                listaGastos.append(DataModel(type: "Gasto", logoPic: iconAdd, logoPicMove: "IMG_2072-2", name: nameAdd, money: moneyAdd, divisa: divisaAdd, move: Move(name: nameAdd, image: "IMG_2102-2")))
             }
             
             navigationController?.popViewController(animated: true)

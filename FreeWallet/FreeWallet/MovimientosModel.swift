@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Movimientos{
+struct Movimientos: Codable{
     let type: String
     let image: String
     let monto: Double

@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-struct Move {
+struct Move: Codable {
     var name: String
-    var image: UIImage!
+    var image: String
 }
 
 /*let moves: [Move] = [
